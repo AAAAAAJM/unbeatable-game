@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#050505" />
+  <meta name="description" content="A million black cells. Turn them all white." />
+  <title>UNBEATABLE — 1,000,000 Cells</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-block">
+        <p class="eyebrow">THE UNBEATABLE GAME</p>
+        <h1>MAKE IT WHITE.</h1>
+        <p class="subtitle">1,000 × 1,000. One million cells. One shared goal.</p>
+      </div>
+      <div class="prototype-pill" title="GitHub Pages 단계에서는 브라우저 로컬 데이터만 사용합니다.">
+        LOCAL PROTOTYPE
+      </div>
+    </header>
+
+    <section class="stats-grid" aria-label="게임 상태">
+      <article class="stat-card primary">
+        <span class="stat-label">WHITE</span>
+        <strong id="whiteCount" class="stat-value">0</strong>
+        <span class="stat-meta">/ 1,000,000</span>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">REMAINING</span>
+        <strong id="remainingCount" class="stat-value">1,000,000</strong>
+        <span class="stat-meta" id="progressPercent">0.000%</span>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">YOUR CLICKS</span>
+        <strong id="clickBalance" class="stat-value">1</strong>
+        <span class="stat-meta">1 click = 1 cell</span>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">NEXT CLICK</span>
+        <strong id="nextClick" class="stat-value timer">60:00</strong>
+        <span class="stat-meta">active time only</span>
+      </article>
+    </section>
+
+    <section class="progress-track" aria-label="전체 진행률">
+      <div id="progressBar" class="progress-fill"></div>
+    </section>
+
+    <section class="game-panel">
+      <div class="game-toolbar">
+        <div class="toolbar-copy">
+          <span id="statusDot" class="status-dot"></span>
+          <span id="statusText">Ready — drag to move, wheel to zoom, click a black cell.</span>
+        </div>
+        <div class="toolbar-actions" aria-label="보드 컨트롤">
+          <button id="zoomOut" class="icon-button" type="button" aria-label="축소">−</button>
+          <button id="resetView" class="text-button" type="button">CENTER</button>
+          <button id="zoomIn" class="icon-button" type="button" aria-label="확대">+</button>
+        </div>
+      </div>
+
+      <div id="canvasFrame" class="canvas-frame">
+        <canvas id="gameCanvas" aria-label="1000 by 1000 black and white game board"></canvas>
+        <div class="canvas-hint">DRAG · ZOOM · CLICK</div>
+      </div>
+    </section>
+
+    <section class="session-panel">
+      <div>
+        <span class="session-label">THIS DEVICE</span>
+        <code id="deviceId">creating…</code>
+      </div>
+      <p>
+        현재 버전은 GitHub Pages 확인용입니다. 기기 ID·접속시간·클릭은 이 브라우저에 저장되며,
+        최종 버전에서는 Cloudflare 서버가 보상과 보드 상태를 검증합니다.
+      </p>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
